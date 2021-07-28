@@ -11,17 +11,17 @@ export default defineConfig({
       routes: [
         {
           path: '/',
-          component: './home/index.tsx',
+          component: '@/pages/home/index.tsx',
           title:'首页'
         },
         {
           path: '/order',
-          component: './order/index.tsx',
+          component: '@/pages/order/index.tsx',
           title:'订单'
         },
         {
           path: '/user',
-          component: './user/index.tsx',
+          component: '@/pages/user/index.tsx',
           title:'用户'
         },
       ]
