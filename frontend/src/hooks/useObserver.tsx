@@ -9,17 +9,19 @@ let observer: Observer;
 export default function useObserver(elem: String, callback: Function, watch: []) {
   useEffect(() => {
     console.log('enter page')
-    const elements = document.querySelector(elem)
-    observer = new IntersectionObserver(
+    const element = document.querySelector(elem)
+    if(element){
+      observer = new IntersectionObserver(
       entries => {
         console.log(`entries`, entries)
       }
     )
-    observer.observe(elements)
+      observer.observe(element)
+    }
     return () => {
       console.log('leave page')
-      if(observer){
-        observer.unobserve(elements)
+      if(observer && element){
+        observer.unobserve(element)
         observer.disconnect()
       }
     }
