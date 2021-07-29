@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { BsFillAlarmFill } from "react-icons/bs";
-import { SearchBar, Button, WhiteSpace, WingBlank } from 'antd-mobile';
+import { SearchBar, Button, WhiteSpace } from 'antd-mobile';
 import { useObserver } from '@/hooks/index'
 import { history } from "umi";
 import './index.less'
@@ -9,7 +9,7 @@ interface propsType {
 }
 
 export default function (props: propsType) {
-  const [state, setState ] = useState()
+  const [lists, setLists ] = useState([])
   useObserver('.observable', (entries:Object)=> {
     console.log(`entries`, entries)
   }, [])
@@ -18,6 +18,7 @@ export default function (props: propsType) {
   }
   
 
+
   return (
     <div>
       <WhiteSpace />
@@ -25,6 +26,9 @@ export default function (props: propsType) {
       <WhiteSpace />
       <SearchBar placeholder="Search" maxLength={8} />
       <Button onClick={handleClick} type='primary'>redirect to Order Page</Button>
+      <div>
+
+      </div>
       <div className='observable'>
         observable
       </div>

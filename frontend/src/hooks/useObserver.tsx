@@ -14,6 +14,7 @@ export default function useObserver(elem: String, callback: Function, watch: [])
       observer = new IntersectionObserver(
       entries => {
         console.log(`entries`, entries)
+        callback && callback(entries)
       }
     )
       observer.observe(element)
