@@ -6,7 +6,7 @@ interface Observer {
 }
 
 let observer: Observer;
-export default function useImgHook(elem: String, callback: Function, watch: []) {
+export default function useImgHook(elem: String, callback: Function, watch: [] = []) {
   useEffect(() => {
     console.log('enter page')
     const nodes = document.querySelectorAll(elem)
@@ -14,6 +14,7 @@ export default function useImgHook(elem: String, callback: Function, watch: []) 
       observer = new IntersectionObserver(
       entries => {
         callback && callback(entries)
+        console.log(`entries`, entries)
         entries.forEach(
           item => {
             if(item.isIntersecting){
@@ -33,7 +34,7 @@ export default function useImgHook(elem: String, callback: Function, watch: []) 
     }
     return () => {
       console.log('leave page')
-      if(observer && nodes){
+      if(observer && nodes && nodes.length){
         observer.disconnect()
       }
     }
