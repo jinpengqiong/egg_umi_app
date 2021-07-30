@@ -18,7 +18,7 @@ export default function useImgHook(elem: String, callback: Function, watch: [] =
         entries.forEach(
           item => {
             if(item.isIntersecting){
-              const dataSrc = item.target.getAttribute('data-src')
+              const dataSrc:string = item.target.getAttribute('data-src')
               item.target.setAttribute('src', dataSrc)
               observer.unobserve(item.target)
             }
