@@ -3,7 +3,7 @@ import React , { useEffect } from 'react'
 export default function Detail() {
   return (
     <div>
-      detail
+      detail page
     </div>
   )
 }
